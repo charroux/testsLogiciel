@@ -1,0 +1,19 @@
+<!-- src/main/resources/templates/voiture.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Voiture</title>
+</head>
+<body>
+<h1>Bienvenue sur la page Voiture</h1>
+<form action="/voiture" method="post">
+    <label for="marque">Marque:</label>
+    <input type="text" id="marque" name="marque" required><br><br>
+    <label for="prix">Prix:</label>
+    <input type="number" id="prix" name="prix" required><br><br>
+    <input type="submit" value="Ajouter Voiture">
+</form>
+</body>
+</html>
