@@ -19,13 +19,13 @@ public class VoitureTest {
         voiture.setMarque("Renault");
         voiture.setPrix(12000);
 
-        assertEquals("Renault", voiture.getMarque());
+        assertEquals("Renault", voiture.getMarque()); //test equals avec la marque
         assertEquals(12000, voiture.getPrix());
     }
 
     @Test
     void creerVoitureAudi() {
-        voiture.setMarque("Audi");
+        voiture.setMarque("Audi"); //2eme test
         voiture.setPrix(22000);
 
         assertEquals("Audi", voiture.getMarque());
