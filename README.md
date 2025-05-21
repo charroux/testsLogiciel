@@ -21,6 +21,7 @@ Pour cela commencer par cloner ce projet :
 ```
 git clone https://github.com/charroux/testsLogiciel
 ```
+Déplacez-vous dans le dossier du projet.
 
 Créez ensuite un projet vide dans un de vos compte Github et utiliser les instructions suivantes pour copier le projet vers votre comopte Github en indiquat le nom de votre repository dans l'instruction git remote.
 
@@ -33,7 +34,14 @@ git remote add origin https://github.com/charroux/test1.git
 git push -u origin main
 ```
 
-# Collaborer à un projet : le ccncept du pull request
+Si nécessaire supprimer le lien avec l'origine existante : 
+```
+git remote remove origin
+```
+
+et refaire le add remote.
+
+# Collaborer à un projet : le concept du pull request
 
 Quand un développeur collabore à un projet il porocède de la façon suivante : 
 
@@ -117,7 +125,7 @@ https://github.com/charroux/testsLogiciel/blob/main/src/test/java/com/example/de
 
 ATTENTION ! PENSEZ BIEN A CODER LE PROGRAMME DE TEST DANS UN NOUVELLE BRANCHE COMME INDIQUÉ CI-DESSUS, puis faites une demande pull request.
 
-Les tests qui vont échoués seront affichés chez Github :
+Les tests qui vont échouer seront affichés chez Github :
 
 <img src="images/build_failed.png" width="500"/>
 
@@ -142,10 +150,50 @@ Son implantation et donnée : https://github.com/charroux/testsLogiciel/blob/mai
 
 Votre tâche consiste à écrire la classe de test en utilisant le framework Mockito : https://github.com/charroux/testsLogiciel/blob/main/src/test/java/com/example/demo/service/StatistiqueTests.java
 
-# TP 3
+# TD 2 - MockMvc
+
+MockVvc est un framework de test qui permet de tester un application Web programmé en Java version Spring. 
+Essentiellement, ce framework envoi des requêtes HTTP à un programe Web Java et vérifier que les réponses sont celles attendues.
+
+Comment faire des requêtes : https://docs.spring.io/spring-framework/reference/6.0/testing/spring-mvc-test-framework/server-performing-requests.html
+
+Comment vérifier les résultats des requêtes : https://docs.spring.io/spring-framework/reference/6.0/testing/spring-mvc-test-framework/server-defining-expectations.html
+
+# TP 3 - MockMvc
 
 ## Le service Web
 
 L'application de la question précédente est utilisé la un service Web dont voici le code : https://github.com/charroux/testsLogiciel/blob/main/src/main/java/com/example/demo/web/StatistiqueController.java
 
 Votre travail consiste à écrire la classe de test correspondante : https://github.com/charroux/testsLogiciel/blob/main/src/test/java/com/example/demo/web/WebTests.java
+
+```
+curl --header "Content-Type: application/json" \   
+  --request POST \
+  --data '{"marque":"f","prix":100}' \
+  http://localhost:8080/voiture
+```
+
+# TP 4
+
+## Tests de couverture de code
+
+Le script d'intégration coninue qui s'exécute chez Github contient déjà un programme de couverture de code (voir à la fin l'instruction ./gradlew jacocoTestReport) : https://github.com/charroux/testsLogiciel/blob/main/.github/workflows/action.yml
+
+Vérifiez que votre script conient cette instruction et ajoutez-là si ce n'est pas le cas. 
+
+Gradle (l'outil de compilation) requiert un plugin pour générer le rappprt de converture de code. 
+Ce plugin doit être indiqué par l'instruction (id 'org.barfuin.gradle.jacocolog' version '1.0.1') dans le fichier de configuration du projet (en ligne 6) : https://github.com/charroux/testsLogiciel/blob/main/build.gradle
+
+Quand le script d'intégration continue s'exécute le rapport généré contient les résultats de la couverture de code :
+
+<img src="images/jacoco.png" width="500"/>
+
+Ce rapport n'est pas très détaillé et donc pas très facile à exploiter ! Cependant, il est suffisant pour vous rendre compte si vos programmes de tests garantissent une bonne couverture de code. Si ce n'est pas le cas, à vous d'ajouter des cas de tests pour améliorer la couverture de code.
+Si vous souhaitez avec un rapport de couverture de code plus détaillé, vous pouvez lancer le test de couverture sur votre machine via : 
+
+```
+./gradlew jacocoTestReport
+```
+
+Mais encore faut-il que votre machine dispose de Java JDK 17.
