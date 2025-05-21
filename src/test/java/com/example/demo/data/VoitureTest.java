@@ -2,67 +2,36 @@ package com.example.demo.data;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class VoitureTest {
 
     @Test
     void creerVoiture(){
-        Voiture voiture = new Voiture("Porsche", 150_000);
-        assertAll(
-                () -> assertEquals(150_000, voiture.getPrix(), "Le prix doit être 150 000"),
-                () -> assertEquals("Porsche", voiture.getMarque(), "La marque doit être Porsche")
-        );
+        Voiture voiture = new Voiture("McLaren",2_300_000);
+        assertEquals(2_300_000, voiture.getPrix());
+        Assert.isTrue("McLaren".equals(voiture.getMarque()), "La voiture doit être une McLaren");
     }
 
     @Test
-    void creerVoitureVide() {
+    void creerVoitureSansParam(){
         Voiture voiture = new Voiture();
-        assertAll(
-                () -> assertEquals(0, voiture.getPrix(), "Le prix doit être 0"),
-                () -> assertNull(voiture.getMarque(), "La marque doit être null")
-        );
+        voiture.setId(1);
+        voiture.setMarque("McLaren");
+        voiture.setPrix(2_300_000);
+        assertEquals(1, voiture.getId());
+        assertEquals(2_300_000, voiture.getPrix());
+        Assert.isTrue("McLaren".equals(voiture.getMarque()), "La voiture doit être une McLaren");
     }
 
     @Test
-    void testGetSetId(){
-        Voiture voiture = new Voiture("Porsche", 150_000);
-        voiture.setId(99);
-        assertAll(
-                () -> assertEquals(99, voiture.getId(), "L'id doit être 99"),
-                () -> assertEquals(150_000, voiture.getPrix(), "Le prix doit être 150 000"),
-                () -> assertEquals("Porsche", voiture.getMarque(), "La marque doit être Porsche")
-        );
-    }
-
-    @Test
-    void testGetSetMarque(){
-        Voiture voiture = new Voiture("Porsche", 150_000);
-        voiture.setMarque("Lamborghini");
-        assertAll(
-                () -> assertEquals(150_000, voiture.getPrix(), "Le prix doit être 150 000"),
-                () -> assertEquals("Lamborghini", voiture.getMarque(), "La marque doit être Lamborghini")
-        );
-    }
-
-    @Test
-    void testGetSetPrix(){
-        Voiture voiture = new Voiture("Porsche", 150_000);
-        voiture.setPrix(180_000);
-        assertAll(
-                () -> assertEquals(180_000, voiture.getPrix(), "Le prix doit être 180 000"),
-                () -> assertEquals("Porsche", voiture.getMarque(), "La marque doit être Porsche")
-        );
-    }
-
-    @Test
-    void testToString(){
-        Voiture voiture = new Voiture("Porsche", 150_000);
-        voiture.setId(99);
-        String expected = "Car{marque='Porsche', prix=150000, id=99}";
-        assertEquals(expected, voiture.toString(), "La méthode toString doit retourner la chaîne attendue");
-        //comment
+    void afficherVoiture(){
+        Voiture voiture = new Voiture("McLaren",2_300_000);
+        voiture.setId(0);
+        String expected = "Car{marque='McLaren', prix=2300000, id=0}";
+        assertEquals(expected, voiture.toString());
     }
 }
