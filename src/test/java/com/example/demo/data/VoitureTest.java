@@ -63,5 +63,6 @@ public class VoitureTest {
         voiture.setId(99);
         String expected = "Car{marque='Porsche', prix=150000, id=99}";
         assertEquals(expected, voiture.toString(), "La méthode toString doit retourner la chaîne attendue");
+        //comment
     }
 }
