@@ -47,3 +47,4 @@ public class VoitureTest{
         assertEquals(10, voiture.getId());
     }
 }
+/**Test finito*/
