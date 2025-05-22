@@ -28,4 +28,10 @@ public class StatistiqueImpl implements Statistique{
         }
         return new Echantillon(nombreDeVoitures, prixTotal/nombreDeVoitures);
     }
+
+    @Override
+    public List<Voiture> getVoitures() {
+        return voitures;
+    }
+
 }

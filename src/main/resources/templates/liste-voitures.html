@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des voitures</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"/>
+</head>
+<body>
+<h2>Liste des voitures</h2>
+<table id="voituresTable">
+    <thead>
+    <tr>
+        <th>Marque</th>
+        <th>Modèle</th>
+        <th>Prix</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        fetch('/voitures')
+            .then(res => res.json())
+            .then(data => {
+                data.forEach(v => {
+                    $('#voituresTable tbody').append(
+                        `<tr><td>${v.marque}</td><td>${v.modele}</td><td>${v.prix}</td></tr>`
+                    );
+                });
+                $('#voituresTable').DataTable();
+            });
+    });
+</script>
+</body>
+</html>
