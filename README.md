@@ -150,7 +150,7 @@ Son implantation et donnée : https://github.com/charroux/testsLogiciel/blob/mai
 
 Votre tâche consiste à écrire la classe de test en utilisant le framework JUnit.
 
-# TD 2 - MockMvc
+# TD 3 - MockMvc
 
 MockVvc est un framework de test qui permet de tester un application Web programmé en Java version Spring. 
 Essentiellement, ce framework envoi des requêtes HTTP à un programe Web Java et vérifier que les réponses sont celles attendues.
