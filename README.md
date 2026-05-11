@@ -155,9 +155,18 @@ Votre tâche consiste à écrire la classe de test en utilisant le framework Moc
 MockVvc est un framework de test qui permet de tester un application Web programmé en Java version Spring. 
 Essentiellement, ce framework envoi des requêtes HTTP à un programe Web Java et vérifier que les réponses sont celles attendues.
 
-Comment faire des requêtes : https://docs.spring.io/spring-framework/reference/6.0/testing/spring-mvc-test-framework/server-performing-requests.html
+https://docs.spring.io/spring-framework/reference/testing/mockmvc.html
 
-Comment vérifier les résultats des requêtes : https://docs.spring.io/spring-framework/reference/6.0/testing/spring-mvc-test-framework/server-defining-expectations.html
+
+Générer des requêtes HTTP :
+
+https://docs.spring.io/spring-framework/reference/testing/mockmvc/hamcrest/requests.html
+
+
+Tester les réponses des requêtes : 
+
+https://docs.spring.io/spring-framework/reference/testing/mockmvc/hamcrest/expectations.html
+
 
 # TP 3 - MockMvc
 
