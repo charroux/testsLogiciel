@@ -9,10 +9,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class VoitureTest {
 
+    private static Voiture voiture;
+    private static Voiture voiture_avec_attribut;
+    
     @BeforeAll 
     static void initAll(){
-	Voiture voiture = new Voiture();
-	Voiture voiture_avec_attribut = new Voiture("Toyota",15000);	
+	voiture = new Voiture();
+	voiture_avec_attribut = new Voiture("Toyota",15000);	
     }
 	
     @Test
@@ -34,8 +37,8 @@ public class VoitureTest {
     @Test
     @DisplayName("Test Already initalize with uncorrected attribut")
     void FalseAttribut(){
-	assertThat("Renault", not(voiture_avec_attribut.getMarque());
-	assertThat(8515151, not(voiture_avec_attribut.getPrix());
+	assertThat(voiture_avec_attribut.getMarque(),is(not("Renault")));
+	assertThat(voiture_avec_attribut.getPrix(),is(not(8545646)));
     }
 
 
