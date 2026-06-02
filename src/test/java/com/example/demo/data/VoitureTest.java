@@ -18,8 +18,7 @@ public class VoitureTest {
         voiture.setId(13);
         assertEquals(voiture.getId(), 13, "Id Ok");
 
-        voiture.toString();
-        
+        voiture.toString();    
     }   
     
 
