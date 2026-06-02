@@ -11,20 +11,20 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 public class StatistiqueTests {
 
-    private StatistiqueImpl statistiqueImpl;
+    private static StatistiqueImpl statistiqueImpl;
 	
     @BeforeAll
     static void initAll(){
     statistiqueImpl = new StatistiqueImpl();
-    Voiture voiture = new Voiture("Toyota",15000F);
+    Voiture voiture = new Voiture("Toyota",15000);
     statistiqueImpl.ajouter(voiture); 
     }
 
     @Test
     @DisplayName("Tout ce passe bien")
     void correctTest(){
-	    assertEquals(new Echantillon(1,1500F),satistiqueImpl.prixMoyen());
-
+        private static res = statistiqueImpl.prixMoyen();
+        assertEquals(15000, statistiqueImpl.prixMoyen());
     }
 
 

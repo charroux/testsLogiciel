@@ -1,8 +1,11 @@
 package com.example.demo.data;
-
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.not;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -37,8 +40,8 @@ public class VoitureTest {
     @Test
     @DisplayName("Test Already initalize with uncorrected attribut")
     void FalseAttribut(){
-	assertThat(voiture_avec_attribut.getMarque(),is(not("Renault")));
-	assertThat(voiture_avec_attribut.getPrix(),is(not(8545646)));
+	assertThat(voiture_avec_attribut.getMarque(),not("Renault"));
+	assertThat(voiture_avec_attribut.getPrix(),not(8545646));
     }
 
 
